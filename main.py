@@ -8,7 +8,7 @@ def main():
         with st.sidebar:
             choice= option_menu(
                  menu_title = None,
-                 options = ["Patient(india)","Patient(statewise)","Vaccine","Overview"]
+                 options = ["Vaccine","Patient(india)","Patient(statewise)","Overview"]
             )
       
         if choice =='Patient(india)':

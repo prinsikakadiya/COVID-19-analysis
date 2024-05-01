@@ -37,3 +37,79 @@ def app():
     plt.tight_layout()  # Adjust layout to prevent clipping of labels
 
     st.pyplot(fig)
+
+#####################3
+
+
+    st.subheader('COVID-19 Vaccine Doses by State')
+
+    # Line plot for dose1 and dose2
+    fig, ax = plt.subplots(figsize=(15, 10))
+
+    # Plot dose1
+    ax.plot(df2['state'], df2['dose1'], marker='o', color='blue', label='Dose 1')
+
+    # Plot dose2
+    ax.plot(df2['state'], df2['dose2'], marker='o', color='orange', label='Dose 2')
+
+    # Plot dose3
+    ax.plot(df2['state'], df2['dose3'], marker='o', color='black', label='Dose 3')
+
+    # Add count labels on top of each data point for dose1
+    for i, txt in enumerate(df2['dose1']):
+        ax.text(i, txt, f'{txt:,}', ha='center', va='bottom')
+
+    # Add count labels on top of each data point for dose2
+    for i, txt in enumerate(df2['dose2']):
+        ax.text(i, txt, f'{txt:,}', ha='center', va='bottom')
+
+    # Add count labels on top of each data point for dose3
+    for i, txt in enumerate(df2['dose3']):
+        ax.text(i, txt, f'{txt:,}', ha='center', va='bottom')    
+
+    ax.set_xlabel('States')
+    ax.set_ylabel('Doses Administered')
+    ax.set_title('COVID-19 Vaccine Doses by State')
+    ax.set_xticklabels(df2['state'], rotation=45, ha='right')  # Rotate x-axis labels for better readability
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: "{:,}".format(int(x))))  # Formatting y-axis labels with commas
+    ax.grid(True)
+    ax.legend()
+
+    st.pyplot(fig)
+
+
+    
+
+#***********************************************************************
+
+
+##########################
+
+    st.subheader('COVID-19 Vaccine Distribution by State')
+
+    # Selectbox to choose the state
+    selected_state = st.selectbox('Select State', df2['state'])
+
+    if selected_state:
+        # Filter data for the selected state
+        state_data = df2[df2['state'] == selected_state]
+
+        # Plot the data
+        plt.figure(figsize=(10, 6))
+
+        # Bar plot for dose1, dose2, and dose3 distribution
+        bars = plt.bar(['Dose 1', 'Dose 2', 'Dose 3'], state_data[['dose1', 'dose2', 'dose3']].iloc[0])
+        plt.xlabel('Dose')
+        plt.ylabel('Number of Doses')
+        plt.title(f'COVID-19 Vaccine Distribution in {selected_state}')
+        plt.grid(True)
+
+        # Add total population as text in front of each bar
+        for i, bar in enumerate(bars):
+            yval = bar.get_height()
+            total_population = state_data['population'].iloc[0]
+            plt.text(bar.get_x() + bar.get_width()/2, yval + 50, f'Total Population: {total_population:,}\nDoses: {int(yval):,} ({yval / total_population * 100:.2f}%)', va='bottom', ha='center')
+
+        st.pyplot(plt)
+
+    

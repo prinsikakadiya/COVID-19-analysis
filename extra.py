@@ -1,6 +1,13 @@
 import streamlit as st
 from PIL import Image  
 
+
+    # Title for the app
+    #st.title('COVID-19 Vaccine Doses by State')
+
+    # Display the DataFrame (optional)
+    #st.write("DataFrame:", df2)
+
 menu=["Patient","Vaccine","Overview"]
 
 choice = st.sidebar.selectbox("Menu",menu)

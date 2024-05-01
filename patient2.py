@@ -457,7 +457,7 @@ def Goa():
 def Gujarat():
     st.subheader('COVID-19 pandemic in Gujarat')
     st.write('In Gujarat, the first two cases of the COVID-19 pandemic were confirmed on 19 March 2020 in Rajkot and Surat.')
-    st.write('On 15 March 2020, Anil Mukim, Chief Secretary of Gujarat, announced the closure of schools, colleges, educational institutes, malls, multiplexes, and swimming pools across the state until March 29 as a precaution against COVID-19. However, the ongoing board examinations for class X and XII were allowed to be conducted.[3] Also, fine of ₹500 was imposed on public spitting in Gujarat.')
+    st.write('On 15 March 2020, Anil Mukim, Chief Secretary of Gujarat, announced the closure of schools, colleges, educational institutes, malls, multiplexes, and swimming pools across the state until March 29 as a precaution against COVID-19. However, the ongoing board examinations for class X and XII were allowed to be conducted. Also, fine of ₹500 was imposed on public spitting in Gujarat.')
     st.write('total population: 63907200')
     st.write('total confirmed case: 1277557')
 
