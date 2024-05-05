@@ -10,7 +10,8 @@ def main():
                  menu_title = None,
                  options = ["Vaccine","Patient(india)","Patient(statewise)","Overview"]
             )
-      
+      #icacls example.txt /grant:r $env:USERNAME:F
+
         if choice =='Patient(india)':
             patient.app()
             
